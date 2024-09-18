@@ -38,12 +38,8 @@ const DynamicInput: React.FC = () => {
 
     const spaceNode = document.createTextNode(" ");
     range.insertNode(spaceNode);
-
-    const typingNode = document.createTextNode("");
-    range.insertNode(typingNode);
-
-    range.setStartAfter(typingNode);
-    range.setEndAfter(typingNode);
+    range.setStartAfter(spaceNode);
+    range.setEndAfter(spaceNode);
 
     const newContent: ContentType[] = [...content, newTag]; // Append new tag at the end
     setContent(newContent);
