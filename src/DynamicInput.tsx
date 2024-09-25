@@ -81,6 +81,7 @@ const DynamicInput: React.FC = () => {
           onChange={handleInputChange}
           onKeyDown={handleKeyDown}
         />
+        <p>After presssing comma a tag is created.</p>
       </div>
 
       <div className="mt-4 flex flex-wrap gap-2">
