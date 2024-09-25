@@ -21,6 +21,12 @@ const DynamicInput: React.FC = () => {
     }
   };
 
+  const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
+    if (e.key === "Backspace" && inputText === "") {
+      removeLastTag();
+    }
+  };
+
   const addTag = (tag: string) => {
     const newTag: TagContentType = {
       id: Math.random().toString(),
@@ -28,6 +34,10 @@ const DynamicInput: React.FC = () => {
       value: tag,
     };
     setContent([...content, newTag]);
+  };
+
+  const removeLastTag = () => {
+    setContent((prevContent) => prevContent.slice(0, -1));
   };
 
   const removeTag = (id: string) => {
@@ -69,6 +79,7 @@ const DynamicInput: React.FC = () => {
           type="text"
           value={inputText}
           onChange={handleInputChange}
+          onKeyDown={handleKeyDown}
         />
       </div>
 
